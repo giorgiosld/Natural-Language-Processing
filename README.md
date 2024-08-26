@@ -10,7 +10,7 @@ The repository is structured as follows:
 - No additional setup is required as all necessary libraries will be installed within the notebooks themselves.
 
 ## Setup
-1A. Clone the repository to your local machine (optional if you want to work offline);
+1A. Clone the repository to your local machine:
   ```
   git clone git@github.com:giorgiosld/Natural-Language-Processing.git
   ```
