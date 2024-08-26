@@ -15,7 +15,7 @@ The repository is structured as follows:
   git clone git@github.com:giorgiosld/Natural-Language-Processing.git
   ```
 
-1B. Alternatively, you can open the notebooks directly in Google Colab by clicking the Colab badge (replace with actual badge link):
+1B. Alternatively, you can open the notebooks directly in Google Colab by clicking the Colab badge:
   ```
   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giorgiosld/Natural-Language-Processing/blob/main/book_exercises/NLP_exercise.ipynb)
   ```
