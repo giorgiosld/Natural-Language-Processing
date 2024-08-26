@@ -3,7 +3,7 @@ This repo contains the assignments, labs, and project work completed during the 
 
 ## Repository Structure
 The repository is structured as follows:
-- [Book Exercises](book_exercises/): Contains the code developed following the book Natural Language Processing with Python;
+- [Book](book/): Contains the code developed following the book Natural Language Processing with Python;
 
 ## Prerequisites
 - Python 3.x (already included in Google Colab);
