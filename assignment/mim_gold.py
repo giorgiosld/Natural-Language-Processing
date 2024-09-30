@@ -1,5 +1,5 @@
+from nltk import FreqDist, ConditionalFreqDist, bigrams
 from nltk.corpus.reader import TaggedCorpusReader
-from nltk.probability import FreqDist
 
 def compute_task1(reader: TaggedCorpusReader):
     # Compute the number of sentences in the MIM-GOLD.sent file
@@ -33,6 +33,16 @@ def compute_task4(reader: TaggedCorpusReader):
     # Compute the 20 most frequent PoS tags in the MIM-GOLD.sent file
     return FreqDist(tag for (word, tag) in reader.tagged_words('MIM-GOLD.sent')).most_common(20)
 
+def compute_task5(reader: TaggedCorpusReader):
+    # Create a bigrams from the tagged words in the MIM-GOLD.sent file
+    tagged_bigrams = bigrams(reader.tagged_words('MIM-GOLD.sent'))
+
+    # Use ConditionalFreqDist to compute frequencies of tags following the tag 'af'
+    cfd = ConditionalFreqDist((first_tag, second_tag) for ((word1, first_tag), (word2, second_tag)) in tagged_bigrams if first_tag == 'AF')
+
+    return cfd['AF'].most_common(10)
+
+
 
 def main():
     reader = TaggedCorpusReader("./", r'.*\.sent', encoding='utf-8')
@@ -49,6 +59,9 @@ def main():
 
     task4 = compute_task4(reader)
     print(f"The most 20 frequent PoS tags: \n{chr(10).join([f'{item[0]} => {item[1]}' for item in task4])}\n")
+
+    task5 = compute_task5(reader)
+    print(f"The most 10 frequent tags that can follow the tag 'af': \n{chr(10).join([f'{item[0]} => {item[1]}' for item in task5])}\n")
 
 if __name__ == "__main__":
     main()
