@@ -1,28 +1,37 @@
-import sys
 from nltk.corpus.reader import TaggedCorpusReader
 
-def load_file(filename: str):
-    try:
-        with open(filename) as f:
-            return f.read()
-    except Exception as e:
-        print(f"Error loading file {filename}: {e}")
-        return None
+def compute_task1(reader: TaggedCorpusReader):
+    # Compute the number of sentences in the MIM-GOLD.sent file
+    num_sentences = len(reader.sents('MIM-GOLD.sent'))
+
+    # Get the 100th sentence in the MIM-GOLD.sent file and convert it to a string
+    sentence_100 = " ".join(reader.sents('MIM-GOLD.sent')[99])
+    return {
+        "num_sentences": num_sentences,
+        "sentence_100": sentence_100
+    }
+
+def compute_task2(reader: TaggedCorpusReader):
+    # Compute the number of tokens in the MIM-GOLD.sent file
+    num_tokens = len(reader.words('MIM-GOLD.sent'))
+
+    # Compute the number of types in the MIM-GOLD.sent file
+    num_types = len(set(reader.words('MIM-GOLD.sent')))
+
+    return {
+        "num_tokens": num_tokens,
+        "num_types": num_types
+    }
 
 def main():
+    reader = TaggedCorpusReader("./", r'.*\.sent', encoding='utf-8')
+    task1 = compute_task1(reader)
+    print(f"Number of sentences: {task1['num_sentences']}")
+    print(f"Sentence no. 100: \n{task1['sentence_100']}\n")
 
-    filename = "MIM-GOLD.sent"
-    mim_gold = load_file(filename)
-
-    if mim_gold is None:
-        sys.exit(1)
-
-    res = TaggedCorpusReader(filename, mim_gold)
-
-    print(f"Number of sentences: {len(res.sents(mim_gold))}")
-    print(f"Sentence no. 100: {res.sents(mim_gold)[100]}")
-    print(f"Number of tokens: {len(res.words(mim_gold))}")
-    print(f"Number of types: {len(set(res.words(mim_gold)))}")
+    task2 = compute_task2(reader)
+    print(f"Number of token: {task2['num_tokens']}")
+    print(f"Number of types: {task2['num_types']}")
 
 if __name__ == "__main__":
     main()
