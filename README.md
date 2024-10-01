@@ -4,6 +4,8 @@ This repo contains the assignments, labs, and project work completed during the 
 ## Repository Structure
 The repository is structured as follows:
 - [Book](book/): Contains the code developed following the book Natural Language Processing with Python;
+- [labs](labs/): Contains the labs completed during the course;
+- [assignments](assignments/): Contains the assignments completed during the course;
 
 ## Prerequisites
 - Python 3.x (already included in Google Colab);
