@@ -1,3 +1,5 @@
+import os
+
 import gensim.downloader as api
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
@@ -35,27 +37,56 @@ def similarity(word: str, glove):
         formatted_out += f"{num + 1}: ({score:.3f}) {word}\n"
     return formatted_out
 
-def visualize_bias(words: list[str], model, dataset_name: str):
+def reduce_dimensions(vectors: list[np.ndarray], n_components: int = 2):
     """
-    Visualizes word embeddings using PCA to reduce dimensionality to 2D.
+    Reduce the dimensionality of the vectors using PCA.
+    """
+    return PCA(n_components=n_components).fit_transform(np.array(vectors))
+
+def plot_embeddings(reduced_vectors: np.ndarray, words: list[str], dataset_name: str):
+    """
+    Plot the reduced word embeddings.
+    """
+    plt.figure(figsize=(10, 7))
+    for i, word in enumerate(words):
+        plt.scatter(reduced_vectors[i, 0], reduced_vectors[i, 1])
+        plt.text(reduced_vectors[i, 0] + 0.01, reduced_vectors[i, 1] + 0.01, word, fontsize=12)
+    plt.title(f"PCA Visualization of Word Embeddings ({dataset_name} GloVe)")
+
+def save_plot(path: str):
+    """
+    Save the current plot to the specified path.
+    """
+    save_dir = os.path.dirname(path)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    plt.savefig(path)
+    print(f"Plot saved to {path}")
+    plt.show()
+
+def extract_bias_words(words: list[str], model):
+    """
+    Extracts word vectors and valid words from the model.
     """
     vectors = []
     valid_words = []
     for word in words:
-        try:
-            vectors.append(model[word])
-            valid_words.append(word)
-        except KeyError:
-            print(f"Word '{word}' not in vocabulary, skipping.")
+        vectors.append(model[word])
+        valid_words.append(word)
 
-    reduced_vectors = PCA(n_components=2).fit_transform(np.array(vectors))
+    return vectors, valid_words
 
-    plt.figure(figsize=(10, 7))
-    for i, word in enumerate(valid_words):
-        plt.scatter(reduced_vectors[i, 0], reduced_vectors[i, 1])
-        plt.text(reduced_vectors[i, 0] + 0.01, reduced_vectors[i, 1] + 0.01, word, fontsize=12)
-    plt.title(f"PCA Visualization of Word Embeddings ({dataset_name} GloVe)")
-    plt.show()
+def visualize_bias(words: list[str], model, dataset_name: str):
+    """
+    Visualizes word embeddings using PCA to reduce dimensionality to 2D.
+    Optionally saves the plot to the specified path.
+    """
+    vectors, valid_words = extract_bias_words(words, model)
+
+    reduced_vectors = reduce_dimensions(vectors)
+    plot_embeddings(reduced_vectors, valid_words, dataset_name)
+    save_path = f"resources/{dataset_name.lower()}_bias.png"
+    save_plot(save_path)
 
 def main():
     wiki_glove, twitter_glove = load_pretrained_embeddings()
