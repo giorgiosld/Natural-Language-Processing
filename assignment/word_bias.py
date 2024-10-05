@@ -45,13 +45,25 @@ def main():
     print("\nWords most similar to bias words (Twitter GloVe):")
     [print(result) for result in [similarity(word, twitter_glove) for word in bias_words]]
 
-    bias_relationship = [("european", "white", "african")]
+    bias_relationship = [
+        ("european", "white", "african"),
+        ("man", "mechanic", "woman")
+    ]
 
     # Find similar words to bias relationships
     for a, b, x in bias_relationship:
         print(f"\nIn Wikipedia glove: {find_word(a, b, x, wiki_glove)}")
         print(f"\nIn Twitter glove: {find_word(a, b, x, twitter_glove)}")
 
+    bias_differences = ["cock", "tit" ]
+
+    # Find similar words to bias words for Wikipedia GloVe to see differences between gloves
+    print("Words most similar to bias words (Wikipedia GloVe):")
+    [print(result) for result in [similarity(word, wiki_glove) for word in bias_differences]]
+
+    # Find similar words to bias words for Twitter GloVe to see differences between gloves
+    print("\nWords most similar to bias words (Twitter GloVe):")
+    [print(result) for result in [similarity(word, twitter_glove) for word in bias_differences]]
 
 if __name__ == "__main__":
     main()
