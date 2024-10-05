@@ -1,4 +1,7 @@
 import gensim.downloader as api
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+import numpy as np
 
 def load_pretrained_embeddings():
     """
@@ -32,6 +35,28 @@ def similarity(word: str, glove):
         formatted_out += f"{num + 1}: ({score:.3f}) {word}\n"
     return formatted_out
 
+def visualize_bias(words: list[str], model, dataset_name: str):
+    """
+    Visualizes word embeddings using PCA to reduce dimensionality to 2D.
+    """
+    vectors = []
+    valid_words = []
+    for word in words:
+        try:
+            vectors.append(model[word])
+            valid_words.append(word)
+        except KeyError:
+            print(f"Word '{word}' not in vocabulary, skipping.")
+
+    reduced_vectors = PCA(n_components=2).fit_transform(np.array(vectors))
+
+    plt.figure(figsize=(10, 7))
+    for i, word in enumerate(valid_words):
+        plt.scatter(reduced_vectors[i, 0], reduced_vectors[i, 1])
+        plt.text(reduced_vectors[i, 0] + 0.01, reduced_vectors[i, 1] + 0.01, word, fontsize=12)
+    plt.title(f"PCA Visualization of Word Embeddings ({dataset_name} GloVe)")
+    plt.show()
+
 def main():
     wiki_glove, twitter_glove = load_pretrained_embeddings()
 
@@ -64,6 +89,10 @@ def main():
     # Find similar words to bias words for Twitter GloVe to see differences between gloves
     print("\nWords most similar to bias words (Twitter GloVe):")
     [print(result) for result in [similarity(word, twitter_glove) for word in bias_differences]]
+
+    # Visualize biases using PCA
+    visualize_bias(bias_words, wiki_glove, "Wikipedia")
+    visualize_bias(bias_words, twitter_glove, "Twitter")
 
 if __name__ == "__main__":
     main()
