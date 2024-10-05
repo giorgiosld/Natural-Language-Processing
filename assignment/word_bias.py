@@ -8,34 +8,50 @@ def load_pretrained_embeddings():
     twitter_glove = api.load("glove-twitter-100")
     return wiki_glove, twitter_glove
 
-def find_similar_words(a: str, b:str, x:str, glove):
+def find_word(a: str, b:str, x:str, glove):
     """
     Finds the most similar words to a given word using the provided word embedding model.
     """
     a = a.lower()
     b = b.lower()
     x = x.lower()
-    print(f"> {a}:{b} as {x}:?")
+    formatted_out = f"> {a}:{b} as {x}:? \n"
     top_words = glove.most_similar_cosmul(positive=[x, b], negative=[a])
-    for num, (word, score) in enumerate(top_words[:5]):
-        print(f"{num + 1}: ({score:.3f}) {word}")
-    print()
+    for num, (word, score) in enumerate(top_words[:10]):
+        formatted_out += f"{num + 1}: ({score:.3f}) {word} \n"
+    return formatted_out
+
+def similarity(word: str, glove):
+    """
+    Finds the most similar words to a given word using the provided word embedding model.
+    """
+    word = word.lower()
+    formatted_out = f"Words most similar to '{word}': \n"
+    top_words = glove.most_similar(word, topn=20)
+    for num, (word, score) in enumerate(top_words):
+        formatted_out += f"{num + 1}: ({score:.3f}) {word}\n"
+    return formatted_out
 
 def main():
     wiki_glove, twitter_glove = load_pretrained_embeddings()
 
-    bias_words = ["man", "woman", "european", "african", "american", "asian", "straight", "gay", "lesbian", "bisexual"]
+    bias_words = ["man", "woman", "european", "african", "gay", "lesbian"]
 
-    # Find similar words to bias words
-    print(f"Words most similar to bias words (Wikipedia GloVe):\n{wiki_glove.most_similar((word for word in bias_words), topn=5)}")
-    print(f"Words most similar to bias words (Twitter GloVe):\n{twitter_glove.most_similar((word for word in bias_words), topn=5)}")
+    # Find similar words to bias words for Wikipedia GloVe
+    print("Words most similar to bias words (Wikipedia GloVe):")
+    [print(result) for result in [similarity(word, wiki_glove) for word in bias_words]]
+
+    # Find similar words to bias words for Twitter GloVe
+    print("\nWords most similar to bias words (Twitter GloVe):")
+    [print(result) for result in [similarity(word, twitter_glove) for word in bias_words]]
 
     bias_relationship = [("european", "white", "african")]
 
     # Find similar words to bias relationships
     for a, b, x in bias_relationship:
-        find_similar_words(a, b, x, wiki_glove)
-        find_similar_words(a, b, x, twitter_glove)
+        print(f"\nIn Wikipedia glove: {find_word(a, b, x, wiki_glove)}")
+        print(f"\nIn Twitter glove: {find_word(a, b, x, twitter_glove)}")
+
 
 if __name__ == "__main__":
     main()
