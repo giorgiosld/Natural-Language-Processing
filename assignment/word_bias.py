@@ -111,7 +111,7 @@ def main():
         print(f"\nIn Wikipedia glove: {find_word(a, b, x, wiki_glove)}")
         print(f"\nIn Twitter glove: {find_word(a, b, x, twitter_glove)}")
 
-    bias_differences = ["cock", "tit" ]
+    bias_differences = ["cock", "tits" ]
 
     # Find similar words to bias words for Wikipedia GloVe to see differences between gloves
     print("Words most similar to bias words (Wikipedia GloVe):")
