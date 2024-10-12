@@ -1,0 +1,7 @@
+Text: carroll-alice.txt
+Tokens: 34110
+Types: 3016
+Types excluding stop words: 2872
+10 most common tokens: [(',', 1993), ("'", 1731), ('the', 1527), ('and', 802), ('.', 764), ('to', 725), ('a', 615), ('I', 543), ('it', 527), ('she', 509)]
+Long types: ['affectionately', 'contemptuously', 'disappointment', 'Multiplication']
+Nouns ending in 'ation': ['sensation', 'exclamation', 'station', 'accusation', 'Multiplication', 'invitation', 'Uglification', 'usurpation', 'consultation', 'conversation', 'explanation']
