@@ -28,7 +28,7 @@ def compute_statistics(tokens: list):
     stop_words = set(stopwords.words('english'))
 
     # Compute types excluding stop words
-    types_no_stopwords = {t for t in types if t.lower() not in stop_words}
+    types_no_stopwords = {t for t in types if t not in stop_words}
     num_types_no_stopwords = len(types_no_stopwords)
 
     # Compute 10 most common tokens
@@ -36,7 +36,7 @@ def compute_statistics(tokens: list):
     most_common = fdist.most_common(10)
 
     # Find long types (more than 13 characters)
-    long_types = [t for t in types if len(t) > 13]
+    long_types = sorted([t for t in types if len(t) > 13], key=str.lower)
 
     # Find nouns ending with 'ation'
     types_ending_with_ation = [t for t in types if t.endswith('ation')]
