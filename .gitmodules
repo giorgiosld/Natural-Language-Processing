@@ -1,3 +1,3 @@
-[submodule "assignment/task4/nanoGPT"]
-	path = assignment/task4/nanoGPT
+[submodule "assignments/assignment1/task4/nanoGPT"]
+	path = assignments/assignment1/task4/nanoGPT
 	url = git@github.com:giorgiosld/nanoGPT.git
