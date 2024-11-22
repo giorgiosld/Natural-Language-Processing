@@ -1,0 +1,40 @@
+A)
+Joe: Joe starts with his eyes lowered, contemplating his words, then looks directly at Sam at the end to emphasize the importance of the question.
+"Given that many people rely on jobs that AI might soon replace—whether truck drivers, automation workers, or factory line workers—what strategies, if any, can be used to mitigate the negative impacts of these jobs being eliminated by AI?”
+
+Sam: Sam pauses, gesturing with his right hand as he organizes his thoughts.
+“So… I’ll share some general thoughts, but I find making very specific predictions difficult. The way technology evolves has often been quite different from—even contrary to—my own intuitions.”
+
+As Sam continues speaking, Joe interrupts him, making direct eye contact.
+
+Joe: "Can we—maybe we should stop there and back up a little. What were your initial thoughts?"
+
+B)
+Sam: Sam appears distant, as if recalling his thoughts from a decade ago.
+“If you had asked me 10 years ago, I would have said: first, AI is going to come for blue-collar labor—it’ll drive trucks, do factory work, handle heavy machinery. Then, maybe after that, it’ll take on some types of cognitive labor, but not what I think of as the really ‘hard stuff.’ It won’t be out there proving new mathematical theorems, discovering new science, or writing code. And then, eventually, maybe—maybe last of all, or maybe never, because human creativity is this magic, special thing—it would come for the creative jobs. That’s what I would have said.”
+
+Sam looks directly at Joe, as if returning to the present.
+"Now, A: it looks to me like, for a while, AI has been much better at doing tasks than doing jobs. It can handle these little pieces extremely well, but sometimes it goes off the rails—it struggles with maintaining long coherence. So, people are just able to do their existing jobs much more productively, but you still really need the human there today."
+
+Joe, slightly skeptical, redirects the conversation.
+
+Joe: "Uh, so back to the initial question: if we do have something that completely eliminates... uh, factory workers, completely eliminates truck drivers, delivery drivers, things along those lines—that creates this massive vacuum in our society."
+
+Sam: Sam gestures and occasionally looks up, as if lost in thought.
+“So, I think there are things we’ll do that are good but not entirely sufficient. I believe we’ll eventually implement something like a universal basic income, or a very long-term form of unemployment insurance, something that cushions people financially as they find new roles. But… and maybe I should clarify this—I don’t believe at all that there won’t be many new jobs. Human creativity, the desire for status, competition, the need to invent, to feel part of a community, to be valued… none of that’s going away. People have worried about this forever, and yet, as we get better tools, we keep inventing new and more amazing things to do. There’s a whole universe of possibility out there… I mean that literally—space is vast—but also in the sense that there’s just so much we can all contribute to."
+
+C)
+Sam briefly pauses, then continues.
+"Yet… I realize that talking about future possibilities doesn’t bring comfort to people losing their jobs today. So, we’ll need things like UBI and other forms of economic redistribution. But, to me, that doesn’t address the core of what people truly want: agency, self-determination, the chance to help shape the future alongside society, and to create something meaningful."
+
+Sam looks around thoughtfully.
+"Many people work jobs they dislike, and society seems perpetually undecided on whether we want to work more or less. But somehow, it’s essential that everyone has the opportunity to do something meaningful, to play a role in shaping the future. As truck driving jobs eventually disappear, I hope we’ll find a way not just to solve the economic issue by giving people financial support but to involve them in sharing ownership and decision-making for the future."
+
+Sam gestures as he speaks, emphasizing his points.
+"One of the things I often say about AGI is that while we understand the need to share its benefits, we also have to share decision-making and access. I’d love to see a world where, instead of just dividing up AGI’s profits, we give people a share of the system itself. You could keep it, sell it, or pool it with others for creative endeavors or business ventures. And with that, you’d also gain a voice in how this immense power is directed.”
+
+D)
+Joe: Joe murmurs quietly, his expression showing that he isn't fully convinced by Sam's perspective. His slight frown and downward glance suggest a hint of skepticism, as if he agrees with some points but isn't entirely on board with Sam's idea.
+
+Sam: Sam concludes his thought, with a look of quiet conviction.
+"And so, the better the AGI gets, the more your little one 18-billionth ownership is worth."

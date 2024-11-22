@@ -1,3 +1,6 @@
 [submodule "assignments/assignment1/task4/nanoGPT"]
 	path = assignments/assignment1/task4/nanoGPT
 	url = git@github.com:giorgiosld/nanoGPT.git
+[submodule "final_project"]
+	path = final_project
+	url = https://github.com/giorgiosld/Log-Anomaly-Detection-via-LLMs
